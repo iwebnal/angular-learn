@@ -1,5 +1,9 @@
 <h3>{{ title }}</h3>
-<span> Hi! </span>
+<!-- <span class="red"> Hi! </span> -->
+<div [class]="myClass"> Hi! </div>
+<div class="yellow" [style.background]="'yellow'"> Hi! </div>
+<div class="span" [style.width.px]="200"> Hi! </div>
+<!-- <div class="span" [style.width.px]="myWidth"> Hi! </div> -->
 
 <h3>Child component:</h3>
 <app-user></app-user>
