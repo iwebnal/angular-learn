@@ -1,10 +1,17 @@
 <div>
-  <div> user works!</div>
+  <!-- <div (click)="myColor = 'yellow'" [style.color]="myColor"> user works!</div> -->
+  <!-- <div (click)="changeColorTarget()" [style.color]="myColor"> user works!</div> -->
+  <div (click)="changeColor('yellow')" [style.color]="myColor"> user works!</div>
+  <!-- <input type="text" (input)="changeColor($event.trget.value)" (keydown.enter)="changeColor($event.target.value)"> -->
+  <!-- <input type="text" (input)="changeColor($event.trget.value)" (keydown.control.enter)="changeColor($event.target.value)"> -->
+  <input type="text" (input)="changeColor($event.trget.value)" (keydown.control.shift.enter)="changeColor($event.target.value)">
+
   <br>
   <div>User name: {{user.name}}</div>
   <div>User age: {{user.age}}</div>
   <div>{{'Hello ' + user.name + ' !'}}</div>
   <br>
   <!-- <div>{{ random() }}</div> -->
+
 
 </div>

@@ -12,13 +12,23 @@ export class UserComponent implements OnInit {
     age: '34'
   }
 
+  public myColor = 'green';
+
   constructor() { }
 
   ngOnInit() {
   }
 
-  public random() {
+  random() {
     return Math.random();
   }
+
+  changeColor(color) {
+    this.myColor = color;
+  }
+
+  // changeColorTarget() {
+  //   (this.myColor === 'green') ?  this.myColor = 'yellow' : this.myColor = 'green';
+  // }
 
 }
