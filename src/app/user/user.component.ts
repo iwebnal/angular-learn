@@ -12,7 +12,10 @@ export class UserComponent implements OnInit {
     age: '34'
   }
 
-  public myColor = 'green';
+  public myColor = '';
+  // public myColor = 'green';
+  // public myBackground = 'blue';
+
 
   constructor() { }
 
@@ -27,8 +30,9 @@ export class UserComponent implements OnInit {
     this.myColor = color;
   }
 
-  // changeColorTarget() {
-  //   (this.myColor === 'green') ?  this.myColor = 'yellow' : this.myColor = 'green';
-  // }
+  changeColorTarget(value) {
+    console.log(value);
+    this.myColor = value;
+  }
 
 }
