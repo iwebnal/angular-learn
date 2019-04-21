@@ -4,14 +4,20 @@
   <div [style.background]="colorName">{{ colorName }}</div>
   <div>{{ cardName?.name }}</div>
 
-  <!-- <div style="background: green; padding: 5px;">
-    <span *ngIf="isShow" style="font-size: 14px; color: white;"> Hello! </span>
-    <button (click)="getShow()">{{ butttonText }}</button>
-  </div> -->
-
   <div style="background: green; padding: 5px;">
     <span *ngIf="isShow" style="font-size: 14px; color: white;"> Hello! </span>
+    <button (click)="getShow()">{{ butttonText }}</button>
+  </div>
+
+  <!-- <div style="background: green; padding: 5px;">
+    <span *ngIf="isShow" style="font-size: 14px; color: white;"> Hello! </span>
     <button (click)="isShow = !isShow">Toggle</button>
+  </div> -->
+
+  <div>
+    <ul style="border: 1px solid red; padding: 5px;">
+      <li *ngFor="let item of people">Name: {{ item.name }}, age: {{ item.age }}</li>
+    </ul>
   </div>
 
 </div>
