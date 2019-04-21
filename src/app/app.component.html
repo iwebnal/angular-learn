@@ -1,9 +1,15 @@
-<h3>{{ title }}</h3>
-<!-- <span class="red"> Hi! </span> -->
-<div [class]="myClass"> Hi! </div>
-<div class="yellow" [style.background]="'yellow'"> Hi! </div>
-<div class="span" [style.width.px]="200"> Hi! </div>
-<!-- <div class="span" [style.width.px]="myWidth"> Hi! </div> -->
+<div style="background: yellowgreen; padding: 20px;">
 
-<h3>Child component:</h3>
-<app-user></app-user>
+    <h3>{{ title }}</h3>
+    <!-- <span class="red"> Hi! </span> -->
+    <div [class]="myClass"> Hi! </div>
+    <div class="yellow" [style.background]="'yellow'"> Hi! </div>
+    <div class="span" [style.width.px]="200"> Hi! </div>
+    <!-- <div class="span" [style.width.px]="myWidth"> Hi! </div> -->
+
+    <div style="background: red; margin: 20px; padding: 20px;">
+        <h2>Header component:</h2>
+        <app-header></app-header>
+    </div>
+
+</div>

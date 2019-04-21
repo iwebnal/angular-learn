@@ -1,0 +1,17 @@
+<div>
+
+  <div>Color Name</div>
+  <div [style.background]="colorName">{{ colorName }}</div>
+  <div>{{ cardName?.name }}</div>
+
+  <!-- <div style="background: green; padding: 5px;">
+    <span *ngIf="isShow" style="font-size: 14px; color: white;"> Hello! </span>
+    <button (click)="getShow()">{{ butttonText }}</button>
+  </div> -->
+
+  <div style="background: green; padding: 5px;">
+    <span *ngIf="isShow" style="font-size: 14px; color: white;"> Hello! </span>
+    <button (click)="isShow = !isShow">Toggle</button>
+  </div>
+
+</div>

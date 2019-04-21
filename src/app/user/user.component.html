@@ -8,13 +8,16 @@
     <div>{{'Hello ' + user.name + ' !'}}</div>
     <br>
 
+    <span [style.background]="myBackground">New input</span>
+    <!-- <input type="text" (input)="changeColorTarget($event.target.value)" (keydown.enter)="changeColorTarget($event.target.value)"> -->
 
-  <br>
-  <h4 [style.background]="myBackground">New input</h4>
-  <!-- <input type="text" (input)="changeColorTarget($event.target.value)" (keydown.enter)="changeColorTarget($event.target.value)"> -->
+    <br>
+    <h4 [style.color]="myColor">Connect input and button</h4>
+    <input (keydown.enter)="changeColorTarget($event.target.value)" type="text" #colorElement>
+    <button (click)="changeColorTarget(colorElement.value)">Create color</button>
 
-  <br>
-  <h4 [style.color]="myColor">Connect input and button</h4>
-  <input type="text" #colorElement>
-  <button (click)="changeColorTarget(colorElement.value)">Create color</button>
+    <div style="margin-top: 20px;">
+        headerUser: {{ headerUser?.name }}
+    </div>
+
 </div>

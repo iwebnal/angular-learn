@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -12,14 +12,19 @@ export class UserComponent implements OnInit {
     age: '34'
   }
 
+  @Input('headerUser') headerUser: any;
+
   public myColor = '';
   // public myColor = 'green';
-  // public myBackground = 'blue';
+  public myBackground = 'blue';
 
 
-  constructor() { }
+  constructor() { 
+    console.log('constructor: ', this.headerUser);
+  }
 
   ngOnInit() {
+    console.log('ngOnInit: ', this.headerUser);
   }
 
   random() {
