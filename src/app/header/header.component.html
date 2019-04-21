@@ -1,12 +1,18 @@
 <div style="background: green; margin: 20px; padding: 20px;">
 
     <h3>User component</h3>
-    <app-user [headerUser]="headerUser"></app-user>
+    <span *ngIf="!userSelected" style="color: white; font-size: 14px;"> Click on user item </span>
+    <h4 style="color: white; font-size: 14px;">{{ userSelected?.name }}</h4>
+    <ul>
+        <li *ngFor="let user of headerUser">
+            <app-user [headerUser]="user" (userSelected)="userSelected = user"></app-user>
+        </li>
+    </ul>
+    
 
 </div>
 
 <div style="background: grey; margin: 20px; padding: 20px;">
-
     <h3>User-card component</h3>
     <app-user-card [colorName]="colorName" [cardName]="cardName"></app-user-card>
 

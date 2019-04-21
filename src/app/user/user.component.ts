@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -7,12 +7,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  public user = {
-    name: 'John',
-    age: '34'
-  }
+  // public user = {
+  //   name: 'John',
+  //   age: '34'
+  // }
 
   @Input('headerUser') headerUser: any;
+  @Output('userSelected') userSelected: EventEmitter<any> =  new EventEmitter();
 
   public myColor = '';
   // public myColor = 'green';
@@ -38,6 +39,10 @@ export class UserComponent implements OnInit {
   changeColorTarget(value) {
     console.log(value);
     this.myColor = value;
+  }
+
+  selectUser() {
+    this.userSelected.emit();
   }
 
 }
