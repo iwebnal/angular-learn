@@ -21,11 +21,11 @@ export class UserComponent implements OnInit {
 
 
   constructor() { 
-    console.log('constructor: ', this.headerUser);
+    // console.log('constructor: ', this.headerUser);
   }
 
   ngOnInit() {
-    console.log('ngOnInit: ', this.headerUser);
+    // console.log('ngOnInit: ', this.headerUser);
   }
 
   random() {
@@ -37,7 +37,7 @@ export class UserComponent implements OnInit {
   }
 
   changeColorTarget(value) {
-    console.log(value);
+    // console.log(value);
     this.myColor = value;
   }
 

@@ -12,4 +12,32 @@
         <app-header></app-header>
     </div>
 
+    <app-item>
+        <h4> Hello! {{ itemTitle }}</h4>
+        <section> Lorem ipsum dolor sit amet consectetur adipisicing elit.</section>
+    </app-item>
+
+    <h3>Using directives</h3>
+
+    <div> Direcrive - appColory</div>
+    <div appColory>Lorem ipsum dolor</div> 
+
+    <div> Direcrive - appDelay</div>
+    <div *appDelay="3">Lorem ipsum dolor 11111111</div>
+
+    <div> Direcrive - appDelay example</div>
+
+    <div *ngFor="let delay of [1, 2, 3, 4, 5]">
+        <div *appDelay="delay">Lorem ipsum dolor 222222222</div>
+    </div>
+
+    <div> Working all elements with directives</div>
+    
+    <div appColory #colory="colory">Lorem ipsum dolor</div>
+    <div appColory #colory1="colory">Lorem ipsum dolor</div> 
+    <div appColory #colory2="colory">Lorem ipsum dolor</div> 
+    
+    <button (click)="colory.setRandomColor(); colory1.setRandomColor(); colory2.setRandomColor();">Change color</button>
+
+
 </div>
