@@ -9,6 +9,7 @@ import { ItemComponent } from './item/item.component';
 import { ColoryDirective } from './colory.directive';
 import { DelayDirective } from './delay.directive';
 import { ItemDynamicComponent } from './item-dynamic/item-dynamic.component';
+import { UserService } from './user.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,9 @@ import { ItemDynamicComponent } from './item-dynamic/item-dynamic.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
