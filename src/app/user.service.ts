@@ -14,4 +14,13 @@ export class UserService {
   public getAll() {
     return this.headerUser;
   }
+
+  public remove(name: string) {
+    return this.headerUser = this.headerUser.filter(item => item.name !== name);
+  }
+
+  public add(name: string, age: number = 333) {
+    this.headerUser.push({ name, age });
+  }
+
 }

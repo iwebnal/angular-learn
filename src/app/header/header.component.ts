@@ -34,5 +34,20 @@ export class HeaderComponent implements OnInit {
     this.headerUser = this._userService.getAll();
   }
 
+  public removeUser(name: string) {
+    this._userService.remove(name);
+    this.headerUser = this._userService.getAll(); // update user list
+  }
+
+  public addUser(name) {
+
+    if(!name) {
+      return; // nothing to do for name undefined
+    }
+
+    this._userService.add(name);
+    this.headerUser = this._userService.getAll(); // update user list
+  }
+
 
 }

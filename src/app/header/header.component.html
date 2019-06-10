@@ -6,9 +6,13 @@
     <ul>
         <li *ngFor="let user of headerUser">
             <app-user [headerUser]="user" (userSelected)="userSelected = user"></app-user>
+            <span (click)="removeUser(user.name)" style="cursor: pointer;"> X </span> 
         </li>
     </ul>
-    
+
+    <!-- Added new Users -->
+    <input type="text" #userNameElement>
+    <button (click)="addUser(userNameElement.value); userNameElement.value = '';" style="cursor: pointer"> + </button> 
 
 </div>
 
