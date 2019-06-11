@@ -10,6 +10,7 @@ import { ColoryDirective } from './colory.directive';
 import { DelayDirective } from './delay.directive';
 import { ItemDynamicComponent } from './item-dynamic/item-dynamic.component';
 import { UserService } from './user.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { UserService } from './user.service';
   ],
   entryComponents: [ItemDynamicComponent],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [
     UserService

@@ -21,7 +21,9 @@ export class HeaderComponent implements OnInit {
   //   {name: 'User_5', age: 30},
   // ];
 
-  constructor( private _userService: UserService) {
+  constructor(
+    private _userService: UserService,
+  ) {
 
     setTimeout(() => {
       this.cardName = {
@@ -31,7 +33,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.headerUser = this._userService.getAll();
+    // this.headerUser = this._userService.getAll();
+    this._userService.getAll().subscribe(users => this.headerUser = users);
   }
 
   public removeUser(name: string) {
