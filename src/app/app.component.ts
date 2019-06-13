@@ -2,11 +2,15 @@ import { Component, ViewContainerRef, OnInit } from '@angular/core';
 import { ComponentFactoryResolver } from '@angular/core';
 
 import { ItemDynamicComponent } from './item-dynamic/item-dynamic.component'
+import { CarsListComponent } from './cars-list/cars-list.component';
+import { CarsTableComponent } from './cars-table/cars-table.component';
+import { CarsService } from './cars.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [CarsService]
 })
 export class AppComponent implements OnInit {
   

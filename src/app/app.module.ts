@@ -11,6 +11,8 @@ import { DelayDirective } from './delay.directive';
 import { ItemDynamicComponent } from './item-dynamic/item-dynamic.component';
 import { UserService } from './user.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CarsTableComponent } from './cars-table/cars-table.component';
+import { CarsListComponent } from './cars-list/cars-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     ItemComponent,
     ColoryDirective,
     DelayDirective,
-    ItemDynamicComponent
+    ItemDynamicComponent,
+    CarsTableComponent,
+    CarsListComponent
   ],
   entryComponents: [ItemDynamicComponent],
   imports: [
