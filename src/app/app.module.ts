@@ -10,9 +10,10 @@ import { ColoryDirective } from './colory.directive';
 import { DelayDirective } from './delay.directive';
 import { ItemDynamicComponent } from './item-dynamic/item-dynamic.component';
 import { UserService } from './user.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CarsTableComponent } from './cars-table/cars-table.component';
 import { CarsListComponent } from './cars-list/cars-list.component';
+import { Myinterceptor } from './myinterceptor.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,12 @@ import { CarsListComponent } from './cars-list/cars-list.component';
     HttpClientModule
   ],
   providers: [
-    UserService
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Myinterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })

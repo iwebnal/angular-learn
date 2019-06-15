@@ -5,6 +5,8 @@ import { ItemDynamicComponent } from './item-dynamic/item-dynamic.component'
 import { CarsListComponent } from './cars-list/cars-list.component';
 import { CarsTableComponent } from './cars-table/cars-table.component';
 import { CarsService } from './cars.service';
+import { HttpClient } from '@angular/common/http';
+import { Options } from 'selenium-webdriver';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private viewContainerRef: ViewContainerRef,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private componentFactoryResolver: ComponentFactoryResolver,
+    private _http: HttpClient
   ) {
 
     setTimeout(() => {
@@ -32,6 +35,14 @@ export class AppComponent implements OnInit {
       }, 2000)
     
     }, 2000)
+
+    _http.get('https://api.github.com/search/users').subscribe(results => {
+      console.log(results);
+    });
+
+    _http.get('https://api.github.com/users').subscribe(results => {
+      console.log(results);
+    });
 
   }
 
