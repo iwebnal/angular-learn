@@ -15,6 +15,9 @@ import { Options } from 'selenium-webdriver';
   providers: [CarsService]
 })
 export class AppComponent implements OnInit {
+
+  public userId: number;
+  public paramsNumber: number;
   
   public title:string = 'Parent component:';
   public myClass:string = 'red';
@@ -26,6 +29,10 @@ export class AppComponent implements OnInit {
     private componentFactoryResolver: ComponentFactoryResolver,
     private _http: HttpClient
   ) {
+
+    this.userId = 222;
+    this.paramsNumber = 777;
+
 
     setTimeout(() => {
       this.myClass = 'blue';

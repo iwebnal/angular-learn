@@ -1,3 +1,16 @@
+<div class="links-routers" style="border: 1px solid blue">
+    <span>Router links</span>
+    <br>
+    <a routerLink="page1" class="router-link" routerLinkActive="active-class"> Page1 </a>
+    <a routerLink="page2" class="router-link" routerLinkActive="active-class"> Page2 </a>
+    <a routerLink="page2" [queryParams]="{q: paramsNumber}" class="router-link" routerLinkActive="active-class"> Page2 </a>
+    <a [routerLink]="['page3', userId]" class="router-link" routerLinkActive="active-class"> Page {{ userId }} </a> 
+</div>
+<div class="routers" style="border: 1px solid red">
+    <span>Router outlet box</span>
+    <br>
+    <router-outlet></router-outlet>
+</div>
 <div class="cars-wrapp">
     <app-cars-list></app-cars-list>
     <app-cars-table></app-cars-table>
