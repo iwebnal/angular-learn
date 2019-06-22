@@ -1,3 +1,15 @@
+<div class="routers" style="border: 1px solid red">
+    <span>Router outlet box</span>
+    <br>
+    <router-outlet></router-outlet>
+</div>
+
+<h3> Working whith Navigate </h3>
+<div class="nav-wrapp">
+    <span>Navigate text</span>
+    <button (click)="goToUser(17)">GO TO USER</button>
+</div>
+
 <div class="links-routers" style="border: 1px solid blue">
     <span>Router links</span>
     <br>
@@ -6,11 +18,7 @@
     <a routerLink="page2" [queryParams]="{q: paramsNumber}" class="router-link" routerLinkActive="active-class"> Page2 </a>
     <a [routerLink]="['page3', userId]" class="router-link" routerLinkActive="active-class"> Page {{ userId }} </a> 
 </div>
-<div class="routers" style="border: 1px solid red">
-    <span>Router outlet box</span>
-    <br>
-    <router-outlet></router-outlet>
-</div>
+
 <div class="cars-wrapp">
     <app-cars-list></app-cars-list>
     <app-cars-table></app-cars-table>

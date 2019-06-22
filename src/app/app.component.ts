@@ -7,6 +7,7 @@ import { CarsTableComponent } from './cars-table/cars-table.component';
 import { CarsService } from './cars.service';
 import { HttpClient } from '@angular/common/http';
 import { Options } from 'selenium-webdriver';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ export class AppComponent implements OnInit {
   constructor(
     private viewContainerRef: ViewContainerRef,
     private componentFactoryResolver: ComponentFactoryResolver,
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _router: Router
   ) {
 
     this.userId = 222;
@@ -60,5 +62,10 @@ export class AppComponent implements OnInit {
     }, 3000);
   }
 
+  goToUser(userId) {
+    // this._router.navigate(['page3', userId], {skipLocationChange: true}); //1
+    // this._router.navigateByUrl('page3/' + userId, {skipLocationChange: true}); //2
+        this._router.navigateByUrl('page3/' + userId); //2
+  }
 
 }

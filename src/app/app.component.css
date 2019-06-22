@@ -52,3 +52,13 @@
     width: 100px;
     text-align: center;
 }
+
+.nav-wrapp {
+    border: 1px solid grey;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.nav-wrapp button{
+    margin-left: 15px;
+}
