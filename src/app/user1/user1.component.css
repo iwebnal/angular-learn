@@ -1,0 +1,16 @@
+.active-class {
+    background: red !important;
+    color: white !important;
+    border: 1px solid transparent !important;
+}
+
+.router-link {
+    display: block;
+    padding: 5px 0px;
+    background: transparent;
+    border: 1px solid grey;
+    color: #000;
+    margin: 5px 0px;
+    width: 100px;
+    text-align: center;
+}

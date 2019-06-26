@@ -18,6 +18,8 @@ import { Myinterceptor } from './myinterceptor.service';
 import { Page1Component } from './page1/page1.component';
 import { Page2Component } from './page2/page2.component';
 import { User1Component } from './user1/user1.component';
+import { ProfiliComponent } from './profili/profili.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes = [
   {path: 'page1', component: Page1Component},
@@ -28,7 +30,10 @@ const routes = [
       pageAnotherParam: 'qqqqqqqq'
     },
     component: Page2Component},
-  {path: 'page3/:userId', component: User1Component}
+  {path: 'page3/:userId', component: User1Component, children: [
+    {path: 'profile', component: ProfiliComponent},
+    {path: 'settings', component: SettingsComponent}
+  ]}
 ]
 
 
@@ -46,7 +51,9 @@ const routes = [
     CarsListComponent,
     Page1Component,
     Page2Component,
-    User1Component
+    User1Component,
+    ProfiliComponent,
+    SettingsComponent
   ],
   entryComponents: [ItemDynamicComponent],
   imports: [
