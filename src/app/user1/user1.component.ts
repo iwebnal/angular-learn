@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, Event, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-user1',
@@ -8,8 +8,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class User1Component implements OnInit {
 
-  constructor(private _route: ActivatedRoute) {
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router
+    ) {
+
     this._route.params.subscribe(params => console.log(params));
+  
+    this._router.events.subscribe((event: Event) => {
+      if(event instanceof NavigationStart) {
+        console.log(event);
+      }
+    })
   }
 
   ngOnInit() {
