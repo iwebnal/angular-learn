@@ -20,20 +20,30 @@ import { Page2Component } from './page2/page2.component';
 import { User1Component } from './user1/user1.component';
 import { ProfiliComponent } from './profili/profili.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AuthGuard } from './auth.guard';
+import { UserResolveService } from './user-resolve.service';
 
 const routes = [
   {path: 'page1', component: Page1Component},
   {
     path: 'page2',
+    canActivate: [AuthGuard],
+    resolve: {
+      user: UserResolveService
+    },
     data: {
       title: 'Page 2',
       pageAnotherParam: 'qqqqqqqq'
     },
-    component: Page2Component},
-  {path: 'page3/:userId', component: User1Component, children: [
-    {path: 'profile', component: ProfiliComponent},
-    {path: 'settings', component: SettingsComponent}
-  ]}
+    component: Page2Component
+  },
+  {
+    path: 'page3/:userId', component: User1Component,
+      children: [
+        {path: 'profile', component: ProfiliComponent},
+        {path: 'settings', component: SettingsComponent}
+      ]
+    }
 ]
 
 
@@ -67,7 +77,9 @@ const routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: Myinterceptor,
       multi: true
-    }
+    },
+    AuthGuard,
+    UserResolveService
   ],
   bootstrap: [AppComponent]
 })
