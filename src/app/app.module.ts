@@ -22,9 +22,18 @@ import { ProfiliComponent } from './profili/profili.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from './auth.guard';
 import { UserResolveService } from './user-resolve.service';
+import { LoginComponent } from './login/login.component';
 
 const routes = [
-  {path: 'page1', component: Page1Component},
+  {
+    path: 'page1', component: Page1Component
+  },
+  {
+    path: 'login', component: LoginComponent, outlet: 'popup'
+  },
+  {
+    path: 'admin', loadChildren: './admin/admin.module#AdminModule'
+  },
   {
     path: 'page2',
     canActivate: [AuthGuard],
@@ -63,7 +72,8 @@ const routes = [
     Page2Component,
     User1Component,
     ProfiliComponent,
-    SettingsComponent
+    SettingsComponent,
+    LoginComponent
   ],
   entryComponents: [ItemDynamicComponent],
   imports: [

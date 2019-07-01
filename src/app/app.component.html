@@ -1,7 +1,22 @@
+<div>
+    <h3>Lazy loading rout</h3>
+    <a routerLink="admin" class="router-link"> ADMIN </a>
+</div>
+
+<div>
+    <span>Multiple router-outlets</span>
+    <br>
+    <a [routerLink]="[{ outlets: {popup: 'login'} }]" class="router-link"> Show popup </a>
+    <a [routerLink]="[{ outlets: {popup: null} }]" class="router-link"> Hide popup </a>
+
+</div>
+
+
 <div class="routers" style="border: 1px solid red">
     <span>Router outlet box</span>
     <br>
     <router-outlet></router-outlet>
+    <router-outlet name="popup"></router-outlet>
 </div>
 
 <h3> Working whith Navigate </h3>
