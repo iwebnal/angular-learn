@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -23,6 +23,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from './auth.guard';
 import { UserResolveService } from './user-resolve.service';
 import { LoginComponent } from './login/login.component';
+import { CustomPreloadingStrategy } from './custom-preloading-strategy';
 
 const routes = [
   {
@@ -32,7 +33,11 @@ const routes = [
     path: 'login', component: LoginComponent, outlet: 'popup'
   },
   {
-    path: 'admin', loadChildren: './admin/admin.module#AdminModule'
+    path: 'admin',
+    data: {
+      noreload: false
+    },
+    loadChildren: './admin/admin.module#AdminModule'
   },
   {
     path: 'page2',
@@ -79,7 +84,7 @@ const routes = [
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {preloadingStrategy: CustomPreloadingStrategy})
   ],
   providers: [
     UserService,
@@ -89,7 +94,8 @@ const routes = [
       multi: true
     },
     AuthGuard,
-    UserResolveService
+    UserResolveService,
+    CustomPreloadingStrategy
   ],
   bootstrap: [AppComponent]
 })
