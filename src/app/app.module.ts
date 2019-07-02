@@ -25,6 +25,10 @@ import { UserResolveService } from './user-resolve.service';
 import { LoginComponent } from './login/login.component';
 import { CustomPreloadingStrategy } from './custom-preloading-strategy';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { from } from 'rxjs';
+import { FormComponent } from './form/form.component';
+
 const routes = [
   {
     path: 'page1', component: Page1Component
@@ -78,13 +82,16 @@ const routes = [
     User1Component,
     ProfiliComponent,
     SettingsComponent,
-    LoginComponent
+    LoginComponent,
+    FormComponent
   ],
   entryComponents: [ItemDynamicComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
-    RouterModule.forRoot(routes, {preloadingStrategy: CustomPreloadingStrategy})
+    RouterModule.forRoot(routes, {preloadingStrategy: CustomPreloadingStrategy}),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     UserService,
