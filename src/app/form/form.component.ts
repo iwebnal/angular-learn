@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Observable, of } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class FormComponent implements OnInit {
   public fullnameControl: FormGroup;
   public userListControl: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     // this.nameControl = new FormControl('John', [Validators.required, Validators.minLength(5)]);
@@ -33,12 +33,16 @@ export class FormComponent implements OnInit {
 
     this.fullnameControl.valueChanges.subscribe((value) => console.log(value));
 
-    this.userListControl = new FormGroup({
-      users: new FormArray([
-        new FormControl('Alice'),
-        new FormControl('Bob'),
-        new FormControl('John')
-      ])
+    // this.userListControl = new FormGroup({
+    //   users: new FormArray([
+    //     new FormControl('Alice'),
+    //     new FormControl('Bob'),
+    //     new FormControl('John')
+    //   ])
+    // });
+
+    this.userListControl = this.formBuilder.group({
+      users: this.formBuilder.array([ ['Alice'], ['Bob'], ['John'] ])
     });
 
     this.userListControl.valueChanges.subscribe((value) => console.log(value));
