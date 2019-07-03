@@ -1,4 +1,28 @@
-<span> form works! </span>
+
 <div>
-  <input [formControl]="nameControl">
+  <fieldset>
+    <h4> formControl </h4>
+    <input [formControl]="nameControl">
+  </fieldset>
+</div>
+
+<div>
+  <fieldset [formGroup]="fullnameControl">
+    <h4> formGroup </h4>
+    <input formControlName="firstName">
+    <input formControlName="lastName">
+  </fieldset>
+</div>
+
+<div>
+  <h4> FormArray </h4>
+  <form [formGroup]="userListControl">
+    <ul formArrayName="users">
+      <li *ngFor="let userControl of userListControl.controls.users.controls; let i = index;"> 
+        <input formControlName="{{ i }}">
+        <button (click)="removeUserControl(i)">Remove</button>
+      </li>
+    </ul>
+  </form>
+  <button (click)="addUserControl()">Add user</button>
 </div>
