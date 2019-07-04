@@ -8,6 +8,7 @@ import { CarsService } from './cars.service';
 import { HttpClient } from '@angular/common/http';
 import { Options } from 'selenium-webdriver';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,8 @@ export class AppComponent implements OnInit {
   public myClass:string = 'red';
 
   public itemTitle:string =  'for Item component'
+
+  public trafficControl: FormControl;
 
   constructor(
     private viewContainerRef: ViewContainerRef,
@@ -60,6 +63,10 @@ export class AppComponent implements OnInit {
       const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ItemDynamicComponent); // create factory
       const componentRef = this.viewContainerRef.createComponent(componentFactory); // view dynamic component in DOM
     }, 3000);
+
+    this.trafficControl = new FormControl();
+
+    this.trafficControl.valueChanges.subscribe((value) => console.log(value));
   }
 
   goToUser(userId) {

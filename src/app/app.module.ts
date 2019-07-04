@@ -28,6 +28,7 @@ import { CustomPreloadingStrategy } from './custom-preloading-strategy';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 import { FormComponent } from './form/form.component';
+import { TrafficComponent } from './traffic/traffic.component';
 
 const routes = [
   {
@@ -83,7 +84,8 @@ const routes = [
     ProfiliComponent,
     SettingsComponent,
     LoginComponent,
-    FormComponent
+    FormComponent,
+    TrafficComponent
   ],
   entryComponents: [ItemDynamicComponent],
   imports: [
